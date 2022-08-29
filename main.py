@@ -45,7 +45,7 @@ def Gaussian_Shape(Qo,X,Y,Z,R):
 
 if __name__ == '__main__':
     n = 100
-    n2 = 1.5
+    n2 = 3
     # Heat Source
     T = 1500
 
@@ -70,9 +70,20 @@ if __name__ == '__main__':
     fig = plt.figure()
     ax = plt.axes(projection="3d")
     a1 = ax.scatter3D(A['X'],A['Y'],A['Z'],c = A['Q'],cmap = 'viridis',label = 'Z = 4')
-    a1 = ax.scatter3D(B['X'], B['Y'], B['Z'], c=B['Q'], cmap='viridis',label = 'Z = 0')
+    a2 = ax.scatter3D(B['X'], B['Y'], B['Z'], c=B['Q'], cmap='viridis',label = 'Z = 0')
     ax.set_xlabel('x [mm]')
     ax.set_ylabel('y [mm]')
     ax.set_zlabel('z [mm]')
     fig.colorbar(a1, ax=ax, shrink=1, aspect=25,orientation = 'horizontal')
+    plt.savefig('img1.jpg')
+    plt.show()
+
+    fig = plt.figure()
+    ax = plt.axes(projection="3d")
+    a1 = ax.scatter3D(A['X'], A['Y'], A['Q'], c=A['Q'], cmap='viridis', label='Z = 4')
+    ax.set_xlabel('x [mm]')
+    ax.set_ylabel('y [mm]')
+    ax.set_zlabel('z [mm]')
+    fig.colorbar(a1, ax=ax, shrink=1, aspect=25, orientation='horizontal')
+    plt.savefig('img2.jpg')
     plt.show()
