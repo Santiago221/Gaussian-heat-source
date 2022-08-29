@@ -15,4 +15,3 @@ $$Q(X,Y,Z) = Qo\cdot exp\left(-\frac{X^2 + Y^2}{R\left( Z \right)^2}  \right)$$
 
 $$R\left( Z \right) = R_{min} + (Z -Z_{min})\cdot\frac{(R_{max}-R_{min})}{(Z_{max}-Z_{min})}$$
 
-teste
