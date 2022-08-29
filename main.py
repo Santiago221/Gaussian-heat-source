@@ -61,6 +61,7 @@ if __name__ == '__main__':
     Y = np.linspace(-r_max * n2, r_max * n2, n)
 
     df = Gaussian_Shape(Qo(T),X,Y,Z,R)
+    df.to_csv('3D_Gaussian.csv')
 
     A = df[df['Z'] == 4]
     B = df[df['Z'] == 0]
