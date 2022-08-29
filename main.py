@@ -1,16 +1,39 @@
-# This is a sample Python script.
+# Imports
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def Qo(T, sigma = 5.67e-8 ):
+    """
+    :param T: Temperature [K]
+    :param sigma:  Stefan–Boltzmann Constant [W/m^2K^4]
+    :return: Heat Flux [W/m^2]
+    """
+    return sigma*T**4
 
+def conical_heat_source(r_vet,z_vet, n = 100):
+    Z = np.linspace(z_vet[0],z_vet[1],n)
+    R = []
+    for i,z in enumerate(Z):
+        R.append(r_vet[0] + (z_vet[1] - z)*(r_vet[1]-r_vet[0])/(z_vet[1] - z_vet[0]))
+    return R, Z
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def Gaussian_Shape(Qo,r):
+    pass
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    n = 100
+    n2 = 1.5
+    # Heat Source
+    T = 1500
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # Cone Size
+    r_max = 0.833
+    r_min = 0.4
+    z_max = 0
+    z_min = 4
+    r_vet = [r_max,r_min]
+    z_vet = [z_max,z_min]
+    R, Z = conical_heat_source(r_vet, z_vet, n=100)
+    X = np.linspace(-r_max * n2, r_max * n2, n)
+    Y = np.linspace(-r_max * n2, r_max * n2, n)
