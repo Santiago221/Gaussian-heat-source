@@ -66,7 +66,6 @@ if __name__ == '__main__':
     A = df[df['Z'] == 4]
     B = df[df['Z'] == 0]
 
-
     fig = plt.figure()
     ax = plt.axes(projection="3d")
     a1 = ax.scatter3D(A['X'],A['Y'],A['Z'],c = A['Q'],cmap = 'viridis',label = 'Z = 4')
